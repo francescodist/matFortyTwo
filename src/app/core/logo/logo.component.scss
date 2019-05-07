@@ -1,0 +1,15 @@
+@import '~src/variables';
+
+svg {
+    max-height: 100%;
+    max-width: 100%;
+    .p0 {
+        fill: $primaryColor;
+    }
+    .p1 {
+        fill: darken($primaryColor, 20);
+    }
+    .p2 {
+        fill: white;
+    }
+}

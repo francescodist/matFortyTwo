@@ -12,6 +12,10 @@ const routes: Routes = [
         path: 'nav',
         component: NavComponent,
         children: navRoutes
+    },
+    {
+        path: '**',
+        redirectTo: 'login'
     }
 ];
 
