@@ -1,0 +1,23 @@
+<div class="login-page" fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" fxLayoutGap="50px">
+    <div class="logo-container" fxFlexAlign="center">
+        <app-logo></app-logo>
+    </div>
+    <mat-card fxFlexAlign="center">
+        <mat-card-title>
+            Login to MatFortyTwo
+        </mat-card-title>
+        <mat-card-content>
+            <form>
+                <mat-form-field class="login-field">
+                    <input matInput placeholder="Email" name="email" />
+                </mat-form-field>
+                <mat-form-field class="login-field">
+                    <input matInput placeholder="Password" name="password" />
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" class="login-field">Login</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

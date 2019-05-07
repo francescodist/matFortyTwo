@@ -1,0 +1,26 @@
+@import "variables";
+
+@function my-mat-light-theme-foreground($color) {
+    @return (
+        base:              $color,
+        divider:           rgba($color, 0.20),
+        dividers:          rgba($color, 0.20),
+        disabled:          rgba($color, 0.38),
+        disabled-button:   rgba($color, 0.38),
+        disabled-text:     rgba($color, 0.38),
+        hint-text:         rgba($color, 0.38),
+        secondary-text:    rgba($color, 0.54),
+        icon:              rgba($color, 0.54),
+        icons:             rgba($color, 0.54),
+        text:              rgba($color, 1),
+        slider-off:        rgba($color, 0.26),
+        slider-off-active: rgba($color, 0.38),
+        slider-min:        rgba($color, 0.38)
+    );
+};
+
+$my-app-foreground: my-mat-light-theme-foreground($main-font-color);
+
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
+$my-app-theme-with-foreground: map-merge($my-app-theme, (foreground: $my-app-foreground));
+@include angular-material-theme($my-app-theme-with-foreground);

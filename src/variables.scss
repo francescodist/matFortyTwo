@@ -1,0 +1,11 @@
+@import '../node_modules/@angular/material/theming';
+
+$main-font-color: black;
+
+$my-app-primary: mat-palette($mat-red);
+$my-app-accent:  mat-palette($mat-blue-grey);
+$my-app-warn:    mat-palette($mat-red);
+
+$primaryColor: map-get($my-app-primary, 500);
+
+
