@@ -1,0 +1,34 @@
+@import '../../../../../variables';
+
+.sidenav-item {
+    position: relative;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: transparentize($primaryColor, 1);
+    transition: background-color 0.2s linear;
+    overflow-x: hidden;
+    &:hover {
+        background-color: transparentize($primaryColor, 0.8);
+        .item-selector {
+            transform: translateX(-5px);
+        }
+    }
+    &.selected {
+        color: $primaryColor;
+        border-color: transparentize($primaryColor, 0.8);
+        cursor: default;
+        .item-selector {
+            transform: translateX(-5px);
+        }
+        &:hover {
+            background-color: inherit;
+        }
+    }
+    .item-selector {
+        transition: transform 0.1s linear;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        right: -100%;
+        background-color: $primaryColor;
+    }
+}

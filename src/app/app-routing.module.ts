@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { navRoutes } from './nav-routing';
-import { NavComponent } from './core/nav/nav.component';
+import { NavComponent } from './core/components/nav/nav.component';
 
 const routes: Routes = [
     {

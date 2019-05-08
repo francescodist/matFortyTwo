@@ -6,7 +6,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./nav.component.scss']
 })
 export class NavComponent implements OnInit {
+    isOpen = true;
+    title = 'Home';
+
     constructor() {}
 
     ngOnInit() {}
+
+    public toggleSideNav() {
+        this.isOpen = !this.isOpen;
+    }
 }
