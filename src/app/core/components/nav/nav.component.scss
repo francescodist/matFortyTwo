@@ -1,0 +1,18 @@
+.sidenav-container {
+    height: 100%;
+
+    mat-sidenav {
+        box-shadow: 0 0 10px -5px #bbb;
+        border: none;
+    }
+}
+
+.sidenav-logo-container {
+    width: 300px;
+    height: 200px;
+    padding: 16px;
+    border-radius: 0 0 50% 50%;
+    box-shadow: 0 10px 15px -10px #bbb;
+    background: white;
+    margin-bottom: 16px;
+}

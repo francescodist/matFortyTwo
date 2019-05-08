@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginPageComponent } from './login-page.component';
-import { LogoModule } from '../../core/logo/logo.module';
+import { LogoModule } from '../../core/components/logo/logo.module';
 import {
     MatButtonModule,
     MatCardModule,

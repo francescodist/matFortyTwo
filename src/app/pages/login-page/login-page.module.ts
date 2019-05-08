@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LoginPageRoutingModule } from './login-page-routing.module';
 import { LoginPageComponent } from './login-page.component';
-import { LogoModule } from '../../core/logo/logo.module';
+import { LogoModule } from '../../core/components/logo/logo.module';
 import {
     MatButtonModule,
     MatCardModule,
