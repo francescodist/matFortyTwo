@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavMenuItemComponent } from './nav-menu-item.component';
 import { MatIconModule } from '@angular/material';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('NavMenuItemComponent', () => {
     let component: NavMenuItemComponent;
@@ -10,7 +11,7 @@ describe('NavMenuItemComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [NavMenuItemComponent],
-            imports: [MatIconModule]
+            imports: [MatIconModule, RouterTestingModule]
         }).compileComponents();
     }));
 

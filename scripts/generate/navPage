@@ -7,7 +7,8 @@ PAGENAME=$1-page
 ng g m pages/$PAGENAME --routing || { echo "This page already exists! The generation script has been stopped."; exit 2; }
 ng g c pages/$PAGENAME || { echo "This page already exists! The generation script has been stopped."; exit 2; }
 
-COMPONENT="${1^}"PageComponent
+TITLECASENAME="${1^}"
+COMPONENT="$TITLECASENAME"PageComponent
 APPFOLDER=$PWD/src/app
 ROUTINGFILE="$APPFOLDER/pages/$1-page/$1-page-routing.module.ts"
 
@@ -15,4 +16,4 @@ sed -i "s/\[\]/\[\{path:'',component:$COMPONENT\}\]/" "$ROUTINGFILE"
 
 sed -i "1iimport \{ $COMPONENT \} from './$1-page.component';\n" "$ROUTINGFILE"
 
-sed -i "s/Routes = \[/Routes = \[\{path:'$1',loadChildren:'.\/pages\/$1-page\/$1-page.module#${1^}PageModule'\},/" "$APPFOLDER/nav-routing.ts"
+sed -i "s/NavRoute\[\] = \[/NavRoute\[\] = \[\{title:'${1^}',icon:'menu',path:'$1',loadChildren:'.\/pages\/$1-page\/$1-page.module#${1^}PageModule'\},/" "$APPFOLDER/nav-routing.ts"

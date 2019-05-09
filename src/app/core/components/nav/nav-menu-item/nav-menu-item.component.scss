@@ -4,10 +4,15 @@
     position: relative;
     border-bottom: 1px solid #dfdfdf;
     background-color: transparentize($primaryColor, 1);
-    transition: background-color 0.2s linear;
+    transition: background-color 0.2s linear, color 0.2s linear;
     overflow-x: hidden;
+
+    &:focus {
+        background: inherit;
+    }
     &:hover {
         background-color: transparentize($primaryColor, 0.8);
+        border-color: transparentize($primaryColor, 0.8);
         .item-selector {
             transform: translateX(-5px);
         }

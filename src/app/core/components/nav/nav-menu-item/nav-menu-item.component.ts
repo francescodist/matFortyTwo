@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NavRoute } from '../../../../nav-routing';
+import { NavigationService } from '../../../services/navigation.service';
 
 @Component({
     selector: 'app-nav-menu-item',
@@ -6,11 +8,17 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./nav-menu-item.component.scss']
 })
 export class NavMenuItemComponent implements OnInit {
-    @Input() isSelected: boolean;
-    @Input() title: string;
-    @Input() icon: string;
+    @Input() navigationItem: NavRoute = {} as NavRoute;
 
-    constructor() {}
+    constructor(private navigationService: NavigationService) {}
 
     ngOnInit() {}
+
+    public isSelected() {
+        return (
+            this.navigationService.getSelectedNavigationItem() &&
+            this.navigationItem.path ===
+                this.navigationService.getSelectedNavigationItem().path
+        );
+    }
 }

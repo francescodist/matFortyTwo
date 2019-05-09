@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { navRoutes } from './nav-routing';
 import { NavComponent } from './core/components/nav/nav.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
     {
@@ -11,7 +12,8 @@ const routes: Routes = [
     {
         path: 'nav',
         component: NavComponent,
-        children: navRoutes
+        children: navRoutes,
+        canActivateChild: [AuthGuard]
     },
     {
         path: '**',
