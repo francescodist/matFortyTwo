@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '../../services/navigation.service';
+import { NavigationService } from '../../services/navigation/navigation.service';
 import { NavRoute } from '../../../nav-routing';
+import { AuthService } from '../../../auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-nav',
@@ -10,7 +12,11 @@ import { NavRoute } from '../../../nav-routing';
 export class NavComponent implements OnInit {
     isOpen = true;
 
-    constructor(private navigationService: NavigationService) {}
+    constructor(
+        private navigationService: NavigationService,
+        private authService: AuthService,
+        private router: Router
+    ) {}
 
     ngOnInit() {}
 
@@ -24,5 +30,10 @@ export class NavComponent implements OnInit {
 
     public getSelectedNavigationItem(): NavRoute {
         return this.navigationService.getSelectedNavigationItem();
+    }
+
+    public logout() {
+        this.authService.logout();
+        this.router.navigate(['login'], { replaceUrl: true });
     }
 }

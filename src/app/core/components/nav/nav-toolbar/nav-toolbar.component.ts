@@ -8,6 +8,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export class NavToolbarComponent implements OnInit {
     @Input() title: string;
     @Output() toggleSideNav = new EventEmitter();
+    @Output() logout = new EventEmitter();
 
     constructor() {}
 
@@ -15,5 +16,9 @@ export class NavToolbarComponent implements OnInit {
 
     public onToggleSideNav() {
         this.toggleSideNav.emit();
+    }
+
+    public onLogout() {
+        this.logout.emit();
     }
 }

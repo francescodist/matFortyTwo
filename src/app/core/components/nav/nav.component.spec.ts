@@ -12,6 +12,7 @@ import { LogoModule } from '../logo/logo.module';
 import { NavMenuItemComponent } from './nav-menu-item/nav-menu-item.component';
 import { NavToolbarComponent } from './nav-toolbar/nav-toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('NavComponent', () => {
     let component: NavComponent;
@@ -31,7 +32,8 @@ describe('NavComponent', () => {
                 MatListModule,
                 MatIconModule,
                 MatToolbarModule,
-                BrowserAnimationsModule
+                BrowserAnimationsModule,
+                HttpClientTestingModule
             ]
         }).compileComponents();
     }));

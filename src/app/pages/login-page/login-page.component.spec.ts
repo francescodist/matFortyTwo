@@ -8,6 +8,9 @@ import {
     MatInputModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('LoginPageComponent', () => {
     let component: LoginPageComponent;
@@ -21,7 +24,10 @@ describe('LoginPageComponent', () => {
                 MatCardModule,
                 MatButtonModule,
                 MatInputModule,
-                BrowserAnimationsModule
+                BrowserAnimationsModule,
+                FormsModule,
+                HttpClientTestingModule,
+                RouterTestingModule
             ]
         }).compileComponents();
     }));

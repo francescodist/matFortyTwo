@@ -9,7 +9,7 @@ export interface NavRoute extends Route {
 export const navRoutes: NavRoute[] = [
     {
         title: 'Home',
-        icon: 'menu',
+        icon: 'home',
         path: 'home',
         loadChildren: './pages/home-page/home-page.module#HomePageModule'
     },
