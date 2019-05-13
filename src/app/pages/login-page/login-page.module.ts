@@ -10,6 +10,7 @@ import {
     MatInputModule
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [LoginPageComponent],
@@ -20,7 +21,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
         MatCardModule,
         MatInputModule,
         MatButtonModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        FormsModule
     ]
 })
 export class LoginPageModule {}

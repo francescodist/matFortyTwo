@@ -10,7 +10,8 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <app-nav-toolbar [title]="getSelectedNavigationItem().title"
-                         (toggleSideNav)="toggleSideNav()"></app-nav-toolbar>
+                         (toggleSideNav)="toggleSideNav()"
+                         (logout)="logout()"></app-nav-toolbar>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -21,6 +21,7 @@
         color: $primaryColor;
         border-color: transparentize($primaryColor, 0.8);
         cursor: default;
+        font-weight: bold;
         .item-selector {
             transform: translateX(-5px);
         }
