@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'app-nav',
     templateUrl: './nav.component.html',
-    styleUrls: ['./nav.component.scss']
+    styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent implements OnInit {
     isOpen = true;
@@ -15,7 +15,7 @@ export class NavComponent implements OnInit {
     constructor(
         private navigationService: NavigationService,
         private authService: AuthService,
-        private router: Router
+        private router: Router,
     ) {}
 
     ngOnInit() {}

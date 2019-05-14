@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { StorageKey } from './storage.model';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class StorageService {
     private storage: Storage;

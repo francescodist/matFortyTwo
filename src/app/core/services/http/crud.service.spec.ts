@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 class TestCrud extends CrudService {
     endpoint = '';
@@ -18,8 +18,8 @@ class TestCrud extends CrudService {
 describe('CrudService', () => {
     beforeEach(() =>
         TestBed.configureTestingModule({
-            imports: [HttpClientTestingModule]
-        })
+            imports: [HttpClientTestingModule],
+        }),
     );
 
     it('should be created', () => {
