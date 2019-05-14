@@ -11,15 +11,15 @@ export const navRoutes: NavRoute[] = [
         title: 'Home',
         icon: 'home',
         path: 'home',
-        loadChildren: './pages/home-page/home-page.module#HomePageModule'
+        loadChildren: './pages/home-page/home-page.module#HomePageModule',
     },
     {
         path: '',
         redirectTo: 'home',
-        pathMatch: 'full'
-    }
+        pathMatch: 'full',
+    },
 ];
 
 export function getNavRoutes(): NavRoute[] {
-    return navRoutes.filter(route => route.title).reverse();
+    return navRoutes.filter(route => route.title);
 }

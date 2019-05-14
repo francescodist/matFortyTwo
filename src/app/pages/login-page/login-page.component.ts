@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'app-login-page',
     templateUrl: './login-page.component.html',
-    styleUrls: ['./login-page.component.scss']
+    styleUrls: ['./login-page.component.scss'],
 })
 export class LoginPageComponent implements OnInit {
     email: string;
@@ -23,7 +23,10 @@ export class LoginPageComponent implements OnInit {
 
     public async login(email: string, password: string) {
         try {
-            const url = await this.authService.login(email, password);
+            const url = (await this.authService.mockLogin(
+                email,
+                password,
+            )) as string;
             this.navigateTo(url);
         } catch (e) {
             this.errorMessage = 'Wrong Credentials!';

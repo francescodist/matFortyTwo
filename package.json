@@ -12,8 +12,7 @@
         "e2e": "ng e2e",
         "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
         "format:fix": "prettier --config ./.prettierrc --write \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
-        "generate:navPage": "scripty",
-        "generate:rootPage": "scripty"
+        "genpage": "node ./scripts/generatePage"
     },
     "husky": {
         "hooks": {
