@@ -17,7 +17,7 @@ async function generatePage() {
         console.log(res.stdout);
         res = await exec(`ng g c pages/${pageName}-page`);
         console.log(res.stdout);
-        const title = pageName.slice(0, 1).toUpperCase() + pageName.slice(1);
+        const title = pageName.split('-').map(s => s.slice(0,1).toUpperCase() + s.slice(1)).join('');
         const componentName =  title + 'PageComponent';
         let routingFileText = fs.readFileSync(`src/app/pages/${pageName}-page/${pageName}-page-routing.module.ts`, 'utf-8');
         routingFileText = `import { ${componentName} } from './${pageName}-page.component';\r\n\r\n` + routingFileText;
