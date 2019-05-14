@@ -7,7 +7,7 @@ import { LogoModule } from '../../core/components/logo/logo.module';
 import {
     MatButtonModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
 } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +22,7 @@ import { FormsModule } from '@angular/forms';
         MatInputModule,
         MatButtonModule,
         FlexLayoutModule,
-        FormsModule
-    ]
+        FormsModule,
+    ],
 })
 export class LoginPageModule {}

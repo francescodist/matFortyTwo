@@ -11,7 +11,7 @@ describe('NavMenuItemComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [NavMenuItemComponent],
-            imports: [MatIconModule, RouterTestingModule]
+            imports: [MatIconModule, RouterTestingModule],
         }).compileComponents();
     }));
 

@@ -7,7 +7,7 @@ import {
     MatIconModule,
     MatListModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
 } from '@angular/material';
 import { LogoModule } from '../logo/logo.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -25,7 +25,7 @@ import { NavToolbarComponent } from './nav-toolbar/nav-toolbar.component';
         MatListModule,
         MatToolbarModule,
         MatIconModule,
-        MatButtonModule
-    ]
+        MatButtonModule,
+    ],
 })
 export class NavModule {}

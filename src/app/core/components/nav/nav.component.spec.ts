@@ -6,7 +6,7 @@ import {
     MatIconModule,
     MatListModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
 } from '@angular/material';
 import { LogoModule } from '../logo/logo.module';
 import { NavMenuItemComponent } from './nav-menu-item/nav-menu-item.component';
@@ -23,7 +23,7 @@ describe('NavComponent', () => {
             declarations: [
                 NavComponent,
                 NavMenuItemComponent,
-                NavToolbarComponent
+                NavToolbarComponent,
             ],
             imports: [
                 RouterTestingModule,
@@ -33,8 +33,8 @@ describe('NavComponent', () => {
                 MatIconModule,
                 MatToolbarModule,
                 BrowserAnimationsModule,
-                HttpClientTestingModule
-            ]
+                HttpClientTestingModule,
+            ],
         }).compileComponents();
     }));
 

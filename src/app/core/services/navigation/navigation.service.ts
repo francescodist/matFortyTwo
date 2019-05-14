@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { getNavRoutes, NavRoute } from '../../../nav-routing';
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class NavigationService {
     private navigationItems: NavRoute[] = getNavRoutes();
@@ -16,7 +16,7 @@ export class NavigationService {
 
     public selectNavigationItemByPath(path: string) {
         this.selectedItem = this.navigationItems.find(
-            navItem => navItem.path === path
+            navItem => navItem.path === path,
         );
     }
 

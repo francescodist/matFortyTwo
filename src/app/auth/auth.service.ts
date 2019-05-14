@@ -6,10 +6,10 @@ import { StorageKey } from '../core/services/storage/storage.model';
 const { AUTH_TOKEN } = StorageKey;
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class AuthService extends CrudService {
     endpoint = 'auth';
@@ -36,7 +36,7 @@ export class AuthService extends CrudService {
         try {
             if (!(email === 'user' && password === 'user')) {
                 throw new Error(
-                    'When using mockLogin, login with credentials: \nemail: user\npassword:user'
+                    'When using mockLogin, login with credentials: \nemail: user\npassword:user',
                 );
             }
             this.token = 'user';

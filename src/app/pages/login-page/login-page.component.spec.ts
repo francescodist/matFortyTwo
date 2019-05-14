@@ -5,7 +5,7 @@ import { LogoModule } from '../../core/components/logo/logo.module';
 import {
     MatButtonModule,
     MatCardModule,
-    MatInputModule
+    MatInputModule,
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
@@ -27,8 +27,8 @@ describe('LoginPageComponent', () => {
                 BrowserAnimationsModule,
                 FormsModule,
                 HttpClientTestingModule,
-                RouterTestingModule
-            ]
+                RouterTestingModule,
+            ],
         }).compileComponents();
     }));
 

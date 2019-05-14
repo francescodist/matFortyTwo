@@ -15,15 +15,15 @@ import { HttpConfigInterceptor } from './core/services/http/interceptor.service'
         BrowserAnimationsModule,
         AppRoutingModule,
         NavModule,
-        HttpClientModule
+        HttpClientModule,
     ],
     providers: [
         {
             provide: HTTP_INTERCEPTORS,
             useClass: HttpConfigInterceptor,
-            multi: true
-        }
+            multi: true,
+        },
     ],
-    bootstrap: [AppComponent]
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

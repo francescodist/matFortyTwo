@@ -10,7 +10,7 @@ describe('NavToolbarComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [NavToolbarComponent],
-            imports: [MatIconModule, MatToolbarModule]
+            imports: [MatIconModule, MatToolbarModule],
         }).compileComponents();
     }));
 

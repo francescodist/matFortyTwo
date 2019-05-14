@@ -52,11 +52,11 @@ export abstract class CrudService<T = any> {
 
     public errorHandler(
         method: string,
-        error: HttpErrorResponse
+        error: HttpErrorResponse,
     ): Promise<never> {
         console.error(
             `Error occurred during ${method} ${this.url}/${this.endpoint}`,
-            error
+            error,
         );
         return Promise.reject(error);
     }
