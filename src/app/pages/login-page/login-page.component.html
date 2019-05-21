@@ -9,10 +9,10 @@
         <mat-card-content>
             <form (keyup.enter)="login(email, password)">
                 <mat-form-field class="login-field">
-                    <input matInput placeholder="Email" name="email" [(ngModel)]="email" type="email"/>
+                    <input matInput placeholder="Email" name="email" [(ngModel)]="email" type="email" autocomplete="username email"/>
                 </mat-form-field>
                 <mat-form-field class="login-field">
-                    <input matInput placeholder="Password" name="password" [(ngModel)]="password" type="password"/>
+                    <input matInput placeholder="Password" name="password" [(ngModel)]="password" type="password" autocomplete="current-password"/>
                 </mat-form-field>
             </form>
             <mat-error [textContent]="errorMessage"></mat-error>

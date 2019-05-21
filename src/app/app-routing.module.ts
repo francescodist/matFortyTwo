@@ -1,8 +1,14 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import {
+    Routes,
+    RouterModule,
+    PreloadAllModules,
+    RouteReuseStrategy,
+} from '@angular/router';
 import { navRoutes } from './nav-routing';
 import { NavComponent } from './core/components/nav/nav.component';
 import { AuthGuard } from './auth/auth.guard';
+import { CustomRouteReuseStrategy } from './core/nav-reuse-strategy';
 
 const routes: Routes = [
     {
@@ -13,7 +19,6 @@ const routes: Routes = [
         path: 'nav',
         component: NavComponent,
         children: navRoutes,
-        canActivateChild: [AuthGuard],
         canActivate: [AuthGuard],
     },
     {
@@ -27,5 +32,8 @@ const routes: Routes = [
         RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
     ],
     exports: [RouterModule],
+    providers: [
+        { provide: RouteReuseStrategy, useClass: CustomRouteReuseStrategy },
+    ],
 })
 export class AppRoutingModule {}

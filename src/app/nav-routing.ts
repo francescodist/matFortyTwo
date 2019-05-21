@@ -2,13 +2,12 @@ import { Route } from '@angular/router';
 
 export interface NavRoute extends Route {
     icon?: string;
-    title?: string;
     path: string;
 }
 
 export const navRoutes: NavRoute[] = [
     {
-        title: 'Home',
+        data: { title: 'Home' },
         icon: 'home',
         path: 'home',
         loadChildren: './pages/home-page/home-page.module#HomePageModule',
@@ -21,5 +20,5 @@ export const navRoutes: NavRoute[] = [
 ];
 
 export function getNavRoutes(): NavRoute[] {
-    return navRoutes.filter(route => route.title);
+    return navRoutes.filter(route => route.data && route.data.title);
 }

@@ -2,6 +2,6 @@
    [routerLink]="[navigationItem.path]"
    [ngClass]=" isSelected()? 'selected' : ''" disableRipple>
     <div class="item-selector"></div>
-    <div fxFlex="100%"> {{navigationItem.title}} </div>
+    <div fxFlex="100%"> {{navigationItem.data?.title}} </div>
     <mat-icon>{{navigationItem.icon}}</mat-icon>
 </a>

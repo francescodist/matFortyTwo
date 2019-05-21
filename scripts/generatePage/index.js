@@ -1,11 +1,16 @@
 const util = require('util');
 const exec = util.promisify(require('child_process').exec);
 const fs = require('fs');
-const argv = require('yargs').alias('r', 'root').alias('n', 'nav').alias('i','icon')
-    .boolean(['r', 'n']).demandCommand(1).argv;
+const argv = require('yargs')
+    .alias('r', 'root')
+    .alias('n', 'nav')
+    .alias('c', 'child')
+    .alias('i','icon')
+    .boolean(['r', 'n', 'c']).demandCommand(1).argv;
 
 const isRoot = argv.root;
 const isNav = argv.nav;
+const isChild = argv.child;
 const icon = argv.icon;
 const pageName = argv._[0];
 
@@ -21,7 +26,8 @@ async function generatePage() {
         const componentName =  title + 'PageComponent';
         let routingFileText = fs.readFileSync(`src/app/pages/${pageName}-page/${pageName}-page-routing.module.ts`, 'utf-8');
         routingFileText = `import { ${componentName} } from './${pageName}-page.component';\r\n\r\n` + routingFileText;
-        const route = `{path:'',component:${componentName}},`;
+        routingFileText = `import { NavRootGuard } from '../../core/nav-root.guard';\r\n\r\n` + routingFileText;
+        const route = `{path:'',component:${componentName},canActivate:[NavRootGuard],data:{shouldReuse:true,key:'${pageName}'}},`;
         routingFileText = routingFileText.replace(/(routes[^\[]+\[)(.*)(][^/n]*\n)/, `$1 ${route} $2 $3`);
         fs.writeFileSync(`src/app/pages/${pageName}-page/${pageName}-page-routing.module.ts`, routingFileText, 'utf-8');
         let navRoute =
@@ -36,7 +42,7 @@ async function generatePage() {
             fs.writeFileSync('src/app/app-routing.module.ts', rootRoutesFileText,'utf-8')
         }
         if (isNav) {
-            navRoute = `title: '${title}',` +
+            navRoute = `data: {title: '${title}'},` +
                 `icon: '${icon || 'menu'}',` + navRoute;
             let navRoutesFileText = fs.readFileSync('src/app/nav-routing.ts', 'utf-8');
             navRoutesFileText = navRoutesFileText.replace(
