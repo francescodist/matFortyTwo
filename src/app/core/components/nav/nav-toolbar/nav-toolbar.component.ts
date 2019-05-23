@@ -8,7 +8,6 @@ import { Page } from '../../../services/navigation/navigation.service';
 })
 export class NavToolbarComponent implements OnInit {
     @Input() activePage: Page;
-    @Input() isChildPage: boolean;
     @Output() toggleSideNav = new EventEmitter();
     @Output() logout = new EventEmitter();
     @Output() goBack = new EventEmitter();
