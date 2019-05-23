@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Page } from '../../../services/navigation/navigation.service';
 
 @Component({
     selector: 'app-nav-toolbar',
@@ -6,9 +7,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     styleUrls: ['./nav-toolbar.component.scss'],
 })
 export class NavToolbarComponent implements OnInit {
-    @Input() title: string;
+    @Input() activePage: Page;
     @Output() toggleSideNav = new EventEmitter();
     @Output() logout = new EventEmitter();
+    @Output() goBack = new EventEmitter();
 
     constructor() {}
 
@@ -20,5 +22,9 @@ export class NavToolbarComponent implements OnInit {
 
     public onLogout() {
         this.logout.emit();
+    }
+
+    public onGoBack() {
+        this.goBack.emit();
     }
 }

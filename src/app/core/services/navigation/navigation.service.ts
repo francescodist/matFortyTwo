@@ -1,12 +1,22 @@
 import { Injectable } from '@angular/core';
 import { getNavRoutes, NavRoute } from '../../../nav-routing';
 
+export class Page {
+    title: string;
+    isChild: boolean;
+    constructor(title, isChild?) {
+        this.title = title;
+        this.isChild = !!isChild;
+    }
+}
+
 @Injectable({
     providedIn: 'root',
 })
 export class NavigationService {
     private navigationItems: NavRoute[] = getNavRoutes();
-    private selectedItem: NavRoute = {} as NavRoute;
+    private selectedNavigationItem: NavRoute = {} as NavRoute;
+    private activePage;
 
     constructor() {}
 
@@ -15,12 +25,21 @@ export class NavigationService {
     }
 
     public selectNavigationItemByPath(path: string) {
-        this.selectedItem = this.navigationItems.find(
+        this.selectedNavigationItem = this.navigationItems.find(
             navItem => navItem.path === path,
         );
+        this.setActivePage(this.selectedNavigationItem.data.title);
     }
 
     public getSelectedNavigationItem(): NavRoute {
-        return this.selectedItem;
+        return this.selectedNavigationItem;
+    }
+
+    public getActivePage(): Page {
+        return this.activePage;
+    }
+
+    public setActivePage(title: string, isChild?: boolean) {
+        this.activePage = new Page(title, isChild);
     }
 }

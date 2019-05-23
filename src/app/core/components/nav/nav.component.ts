@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationService } from '../../services/navigation/navigation.service';
+import {
+    NavigationService,
+    Page,
+} from '../../services/navigation/navigation.service';
 import { NavRoute } from '../../../nav-routing';
 import { AuthService } from '../../../auth/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     selector: 'app-nav',
@@ -28,12 +31,25 @@ export class NavComponent implements OnInit {
         return this.navigationService.getNavigationItems();
     }
 
-    public getSelectedNavigationItem(): NavRoute {
-        return this.navigationService.getSelectedNavigationItem();
+    public getActivePage(): Page {
+        return this.navigationService.getActivePage();
     }
 
     public logout() {
         this.authService.logout();
         this.router.navigate(['login'], { replaceUrl: true });
+    }
+
+    public goBack() {
+        const previousUrl = this.router.url
+            .split('/')
+            .slice(0, -1)
+            .join('/');
+        this.router.navigateByUrl(previousUrl);
+    }
+
+    public isChildPage(): boolean {
+        const navUrl = this.router.url.split('nav').pop();
+        return navUrl.split('/').length > 2;
     }
 }

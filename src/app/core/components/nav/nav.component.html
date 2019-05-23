@@ -9,9 +9,9 @@
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <app-nav-toolbar [title]="getSelectedNavigationItem().title"
+        <app-nav-toolbar [activePage]="getActivePage()"
                          (toggleSideNav)="toggleSideNav()"
-                         (logout)="logout()"></app-nav-toolbar>
+                         (logout)="logout()" (goBack)="goBack()"></app-nav-toolbar>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

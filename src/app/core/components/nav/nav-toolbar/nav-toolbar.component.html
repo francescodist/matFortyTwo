@@ -2,7 +2,10 @@
     <button mat-icon-button (click)="onToggleSideNav()">
         <mat-icon>menu</mat-icon>
     </button>
-    <div fxFlex="100%">{{title}}</div>
+    <button mat-icon-button (click)="onGoBack()" *ngIf="activePage?.isChild">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    <div fxFlex="100%">{{activePage?.title}}</div>
     <button mat-icon-button (click)="onLogout()">
         <mat-icon>logout</mat-icon>
     </button>
