@@ -34,4 +34,11 @@ fdescribe('NavigationService', () => {
         expect(activePage.title).toEqual('fakeTitle');
         expect(activePage.isChild).toEqual(true);
     });
+
+    it('should get the activePage', () => {
+        service.setActivePage('fakeTitle', false);
+        // tslint:disable-next-line:no-string-literal
+        const activePage = service['activePage'];
+        expect(service.getActivePage()).toEqual(activePage);
+    });
 });
