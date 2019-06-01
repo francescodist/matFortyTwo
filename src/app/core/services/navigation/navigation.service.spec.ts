@@ -42,16 +42,25 @@ fdescribe('NavigationService', () => {
         expect(service.getActivePage()).toEqual(activePage);
     });
 
-    it('should get the correct selectedNavigationItem', () => {
+    it('should get the correct selectedNavigationItem by the item path', () => {
         spyOn(service, 'setActivePage');
         const mockNavRouteItems = [
-            { path: 'somePath', data: { title: 'someTitle' }  },
+            { path: 'somePath', data: { title: 'someTitle' } },
             { path: 'somePath2' },
             { path: 'somePath3' },
         ];
         // tslint:disable-next-line:no-string-literal
         service['navigationItems'] = mockNavRouteItems;
         service.selectNavigationItemByPath('somePath');
-        expect(service.setActivePage).toHaveBeenCalledWith(mockNavRouteItems[0].data.title);
+        expect(service.setActivePage).toHaveBeenCalledWith(
+            mockNavRouteItems[0].data.title,
+        );
+    });
+
+    it('should get the correct selectedNavigationItem', () => {
+        const navigationItem = { path: 'somePath '};
+        // tslint:disable-next-line:no-string-literal
+        service['selectedNavigationItem'] = navigationItem;
+        expect(service.getSelectedNavigationItem()).toEqual(navigationItem);
     });
 });
