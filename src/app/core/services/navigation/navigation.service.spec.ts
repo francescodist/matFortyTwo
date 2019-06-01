@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { NavigationService } from './navigation.service';
 
-fdescribe('NavigationService', () => {
+describe('NavigationService', () => {
     let service: NavigationService;
 
     beforeEach(() => {
@@ -58,7 +58,7 @@ fdescribe('NavigationService', () => {
     });
 
     it('should get the correct selectedNavigationItem', () => {
-        const navigationItem = { path: 'somePath '};
+        const navigationItem = { path: 'somePath ' };
         // tslint:disable-next-line:no-string-literal
         service['selectedNavigationItem'] = navigationItem;
         expect(service.getSelectedNavigationItem()).toEqual(navigationItem);
