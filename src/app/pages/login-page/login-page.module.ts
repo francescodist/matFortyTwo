@@ -4,11 +4,9 @@ import { CommonModule } from '@angular/common';
 import { LoginPageRoutingModule } from './login-page-routing.module';
 import { LoginPageComponent } from './login-page.component';
 import { LogoModule } from '../../core/components/logo/logo.module';
-import {
-    MatButtonModule,
-    MatCardModule,
-    MatInputModule,
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 

@@ -10,7 +10,10 @@ export const navRoutes: NavRoute[] = [
         data: { title: 'Home' },
         icon: 'home',
         path: 'home',
-        loadChildren: './pages/home-page/home-page.module#HomePageModule',
+        loadChildren: () =>
+            import('./pages/home-page/home-page.module').then(
+                m => m.HomePageModule,
+            ),
     },
     {
         path: '',

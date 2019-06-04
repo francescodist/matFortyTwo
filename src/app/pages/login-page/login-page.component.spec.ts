@@ -2,11 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginPageComponent } from './login-page.component';
 import { LogoModule } from '../../core/components/logo/logo.module';
-import {
-    MatButtonModule,
-    MatCardModule,
-    MatInputModule,
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
