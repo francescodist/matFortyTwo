@@ -12,7 +12,8 @@
     "e2e": "ng e2e",
     "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
     "format:fix": "prettier --config ./.prettierrc --write \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
-    "genpage": "node ./scripts/generatePage"
+    "genpage": "node ./scripts/generatePage",
+      "post-genpage": "lint:fix"
   },
   "husky": {
     "hooks": {

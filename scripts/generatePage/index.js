@@ -32,7 +32,10 @@ async function generatePage() {
         fs.writeFileSync(`src/app/pages/${pageName}-page/${pageName}-page-routing.module.ts`, routingFileText, 'utf-8');
         let navRoute =
             `path: '${pageName}',` +
-            `loadChildren: './pages/${pageName}-page/${pageName}-page.module#${title}PageModule'`;
+            `loadChildren: () =>
+                import('./pages/${pageName}-page/${pageName}-page.module').then(
+                    m => m.${title}PageModule,
+                ),`;
         if (isRoot) {
             let rootRoutesFileText = fs.readFileSync('src/app/app-routing.module.ts', 'utf-8');
             rootRoutesFileText = rootRoutesFileText.replace(
