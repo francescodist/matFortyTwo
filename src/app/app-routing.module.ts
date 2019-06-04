@@ -13,7 +13,10 @@ import { CustomRouteReuseStrategy } from './core/nav-reuse-strategy';
 const routes: Routes = [
     {
         path: 'login',
-        loadChildren: './pages/login-page/login-page.module#LoginPageModule',
+        loadChildren: () =>
+            import('./pages/login-page/login-page.module').then(
+                m => m.LoginPageModule,
+            ),
     },
     {
         path: 'nav',
