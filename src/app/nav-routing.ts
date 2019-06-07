@@ -1,9 +1,11 @@
-import { Route } from '@angular/router';
+import { Route, Router } from '@angular/router';
+import { Injectable } from '@angular/core';
 
 export interface NavRoute extends Route {
     icon?: string;
-    path: string;
 }
+
+export const sideNavPath = 'nav';
 
 export const navRoutes: NavRoute[] = [
     {
@@ -22,6 +24,19 @@ export const navRoutes: NavRoute[] = [
     },
 ];
 
-export function getNavRoutes(): NavRoute[] {
-    return navRoutes.filter(route => route.data && route.data.title);
+@Injectable({
+    providedIn: 'root',
+})
+export class NavRouteService {
+    navRoute: Route;
+
+    constructor(router: Router) {
+        this.navRoute = router.config.find(route => route.path === sideNavPath);
+    }
+
+    public getNavRoutes(): NavRoute[] {
+        return this.navRoute.children.filter(
+            route => route.data && route.data.title,
+        );
+    }
 }
