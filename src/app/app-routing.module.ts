@@ -5,7 +5,7 @@ import {
     PreloadAllModules,
     RouteReuseStrategy,
 } from '@angular/router';
-import { navRoutes } from './nav-routing';
+import { navRoutes, sideNavPath } from './nav-routing';
 import { NavComponent } from './core/components/nav/nav.component';
 import { AuthGuard } from './auth/auth.guard';
 import { CustomRouteReuseStrategy } from './core/nav-reuse-strategy';
@@ -19,7 +19,7 @@ const routes: Routes = [
             ),
     },
     {
-        path: 'nav',
+        path: sideNavPath,
         component: NavComponent,
         children: navRoutes,
         canActivate: [AuthGuard],
