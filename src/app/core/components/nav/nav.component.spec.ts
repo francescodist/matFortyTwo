@@ -11,6 +11,7 @@ import { NavMenuItemComponent } from './nav-menu-item/nav-menu-item.component';
 import { NavToolbarComponent } from './nav-toolbar/nav-toolbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { sideNavPath } from '../../../nav-routing';
 
 describe('NavComponent', () => {
     let component: NavComponent;
@@ -24,7 +25,12 @@ describe('NavComponent', () => {
                 NavToolbarComponent,
             ],
             imports: [
-                RouterTestingModule,
+                RouterTestingModule.withRoutes([
+                    {
+                        path: sideNavPath,
+                        children: [],
+                    },
+                ]),
                 MatSidenavModule,
                 LogoModule,
                 MatListModule,

@@ -1,13 +1,29 @@
 import { TestBed } from '@angular/core/testing';
 
 import { NavigationService } from './navigation.service';
+import { NavRoute } from '../../../nav-routing';
 
 describe('NavigationService', () => {
     let service: NavigationService;
+    const mockNavRouteItems: NavRoute[] = [
+        { path: 'somePath', data: { title: 'someTitle' } },
+        { path: 'somePath2' },
+        { path: 'somePath3' },
+    ];
+    const mockNavRouteService = {
+        navRoute: null,
+        router: null,
+        getNavRoutes: () => mockNavRouteItems,
+    };
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers: [NavigationService],
+            providers: [
+                {
+                    provide: NavigationService,
+                    useValue: new NavigationService(mockNavRouteService),
+                },
+            ],
         });
         service = TestBed.get(NavigationService);
     });
@@ -17,40 +33,25 @@ describe('NavigationService', () => {
     });
 
     it('should get the correct navigationItems', () => {
-        const mockNavRouteItems = [
-            { path: 'somePath' },
-            { path: 'somePath2' },
-            { path: 'somePath3' },
-        ];
-        // tslint:disable-next-line:no-string-literal
-        service['navigationItems'] = mockNavRouteItems;
         expect(service.getNavigationItems()).toEqual(mockNavRouteItems);
     });
 
     it('should set the activePage', () => {
         service.setActivePage('fakeTitle', true);
-        // tslint:disable-next-line:no-string-literal
-        const activePage = service['activePage'];
+        const activePage = service.getActivePage();
         expect(activePage.title).toEqual('fakeTitle');
         expect(activePage.isChild).toEqual(true);
     });
 
     it('should get the activePage', () => {
         service.setActivePage('fakeTitle', false);
-        // tslint:disable-next-line:no-string-literal
-        const activePage = service['activePage'];
+        const activePage = service.getActivePage();
         expect(service.getActivePage()).toEqual(activePage);
     });
 
     it('should get the correct selectedNavigationItem by the item path', () => {
         spyOn(service, 'setActivePage');
-        const mockNavRouteItems = [
-            { path: 'somePath', data: { title: 'someTitle' } },
-            { path: 'somePath2' },
-            { path: 'somePath3' },
-        ];
-        // tslint:disable-next-line:no-string-literal
-        service['navigationItems'] = mockNavRouteItems;
+
         service.selectNavigationItemByPath('somePath');
         expect(service.setActivePage).toHaveBeenCalledWith(
             mockNavRouteItems[0].data.title,
@@ -58,9 +59,8 @@ describe('NavigationService', () => {
     });
 
     it('should get the correct selectedNavigationItem', () => {
-        const navigationItem = { path: 'somePath ' };
-        // tslint:disable-next-line:no-string-literal
-        service['selectedNavigationItem'] = navigationItem;
+        const navigationItem = mockNavRouteItems[0];
+        service.selectNavigationItemByPath(navigationItem.path);
         expect(service.getSelectedNavigationItem()).toEqual(navigationItem);
     });
 });

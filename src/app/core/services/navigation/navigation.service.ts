@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getNavRoutes, NavRoute } from '../../../nav-routing';
+import { NavRoute, NavRouteService } from '../../../nav-routing';
 
 export class Page {
     title: string;
@@ -14,11 +14,13 @@ export class Page {
     providedIn: 'root',
 })
 export class NavigationService {
-    private navigationItems: NavRoute[] = getNavRoutes();
+    private readonly navigationItems: NavRoute[];
     private selectedNavigationItem: NavRoute = {} as NavRoute;
     private activePage;
 
-    constructor() {}
+    constructor(private navRouteService: NavRouteService) {
+        this.navigationItems = navRouteService.getNavRoutes();
+    }
 
     public getNavigationItems(): NavRoute[] {
         return this.navigationItems;

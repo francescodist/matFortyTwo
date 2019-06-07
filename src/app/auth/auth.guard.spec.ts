@@ -3,6 +3,7 @@ import { TestBed, inject } from '@angular/core/testing';
 import { AuthGuard } from './auth.guard';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { sideNavPath } from '../nav-routing';
 
 describe('AuthGuard', () => {
     beforeEach(() => {
