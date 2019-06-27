@@ -4,9 +4,11 @@ import { NavRoute, NavRouteService } from '../../../nav-routing';
 export class Page {
     title: string;
     isChild: boolean;
-    constructor(title, isChild?) {
+    urlLength: number;
+    constructor(title, urlLength, isChild) {
         this.title = title;
         this.isChild = !!isChild;
+        this.urlLength = urlLength;
     }
 }
 
@@ -41,7 +43,7 @@ export class NavigationService {
         return this.activePage;
     }
 
-    public setActivePage(title: string, isChild?: boolean) {
-        this.activePage = new Page(title, isChild);
+    public setActivePage(title: string, urlLength?: number, isChild?) {
+        this.activePage = new Page(title, urlLength, isChild);
     }
 }

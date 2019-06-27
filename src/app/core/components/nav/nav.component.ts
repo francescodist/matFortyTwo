@@ -43,7 +43,7 @@ export class NavComponent implements OnInit {
     public goBack() {
         const previousUrl = this.router.url
             .split('/')
-            .slice(0, -1)
+            .slice(0, -this.navigationService.getActivePage().urlLength)
             .join('/');
         this.router.navigateByUrl(previousUrl);
     }

@@ -23,7 +23,7 @@ export class NavChildGuard implements CanActivate {
         | boolean
         | UrlTree {
         const title = next.data.title;
-        this.navigationService.setActivePage(title, true);
+        this.navigationService.setActivePage(title, next.url.length, true);
         return true;
     }
 }

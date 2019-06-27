@@ -22,7 +22,7 @@ describe('AuthService', () => {
     let authService: AuthService;
     let storageService: StorageService;
 
-    beforeEach(async (() => {
+    beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [HttpClientTestingModule],
             providers: [

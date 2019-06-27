@@ -16,7 +16,7 @@ describe('NavigationService', () => {
         getNavRoutes: () => mockNavRouteItems,
     };
 
-    beforeEach(async (() => {
+    beforeEach(async(() => {
         TestBed.configureTestingModule({
             providers: [
                 {
@@ -40,7 +40,7 @@ describe('NavigationService', () => {
 
     describe('setActivePage', () => {
         it('should set the activePage', () => {
-            service.setActivePage('fakeTitle', true);
+            service.setActivePage('fakeTitle', 1, true);
             const activePage = service.getActivePage();
             expect(activePage.title).toEqual('fakeTitle');
             expect(activePage.isChild).toEqual(true);
@@ -49,7 +49,7 @@ describe('NavigationService', () => {
 
     describe('getActivePage', () => {
         it('should get the activePage', () => {
-            service.setActivePage('fakeTitle', false);
+            service.setActivePage('fakeTitle');
             const activePage = service.getActivePage();
             expect(service.getActivePage()).toEqual(activePage);
         });

@@ -26,7 +26,7 @@ describe('AuthGuard', () => {
     let service: AuthService;
     let router: Router;
 
-    beforeEach(async (() => {
+    beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
                 HttpClientTestingModule,
