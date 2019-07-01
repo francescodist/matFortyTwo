@@ -14,11 +14,13 @@ export class NavMenuItemComponent implements OnInit {
 
     ngOnInit() {}
 
-    public isSelected() {
-        return (
-            this.navigationService.getSelectedNavigationItem() &&
-            this.navigationItem.path ===
-                this.navigationService.getSelectedNavigationItem().path
-        );
+    public isSelected(navItem: NavRoute) {
+        return this.navigationService.getSelectedNavigationItem() === navItem;
+    }
+
+    public shouldOpenGroup(groupedNavItems: NavRoute[]) {
+        return groupedNavItems.reduce((shouldOpen, navItem) => {
+            return shouldOpen || this.isSelected(navItem);
+        }, false);
     }
 }

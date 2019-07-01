@@ -29,9 +29,18 @@ export class NavigationService {
     }
 
     public selectNavigationItemByPath(path: string) {
-        this.selectedNavigationItem = this.navigationItems.find(
-            navItem => navItem.path === path,
-        );
+        this.selectedNavigationItem = this.navigationItems
+            .reduce((flatList, navItem) => {
+                if (navItem.groupedNavRoutes) {
+                    navItem.groupedNavRoutes.forEach(route => {
+                        flatList.push(route);
+                    });
+                } else {
+                    flatList.push(navItem);
+                }
+                return flatList;
+            }, [])
+            .find(navItem => navItem.path === path);
         this.setActivePage(this.selectedNavigationItem.data.title);
     }
 

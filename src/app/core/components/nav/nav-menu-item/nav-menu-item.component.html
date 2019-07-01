@@ -1,6 +1,24 @@
-<a mat-list-item class="sidenav-item"
+<mat-expansion-panel *ngIf="navigationItem.groupedNavRoutes"
+                     [expanded]="shouldOpenGroup(navigationItem.groupedNavRoutes)"
+                     class="mat-elevation-z0">
+    <mat-expansion-panel-header>
+        <mat-panel-title class="group-title">
+            {{navigationItem.group | titlecase}}
+        </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+        <a *ngFor="let item of navigationItem.groupedNavRoutes" mat-list-item class="sidenav-item"
+           [routerLink]="[item.path]"
+           [ngClass]=" isSelected(item)? 'selected' : ''" disableRipple>
+            <div class="item-selector"></div>
+            <div fxFlex="100%"> {{item.data?.title}} </div>
+            <mat-icon>{{item.icon}}</mat-icon>
+        </a>
+    </div>
+</mat-expansion-panel>
+<a *ngIf="!navigationItem.groupedNavRoutes" mat-list-item class="sidenav-item"
    [routerLink]="[navigationItem.path]"
-   [ngClass]=" isSelected()? 'selected' : ''" disableRipple>
+   [ngClass]=" isSelected(navigationItem)? 'selected' : ''" disableRipple>
     <div class="item-selector"></div>
     <div fxFlex="100%"> {{navigationItem.data?.title}} </div>
     <mat-icon>{{navigationItem.icon}}</mat-icon>

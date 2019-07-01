@@ -12,6 +12,7 @@ describe('NavigationService', () => {
     ];
     const mockNavRouteService = {
         navRoute: null,
+        navRoutes: null,
         router: null,
         getNavRoutes: () => mockNavRouteItems,
     };
