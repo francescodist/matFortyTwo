@@ -36,7 +36,7 @@ This will generate a new component (**PageNamePageComponent**) with routing in
 npm run genpage -- -r page-name
 
 # GENERATE A SIDENAV PAGE    
-npm run genpage -- -r page-name
+npm run genpage -- -n page-name
 
 # GENERATE A PAGE THAT'S BOTH ROOT AND SIDENAV
 npm run genpage -- -rn page-name
