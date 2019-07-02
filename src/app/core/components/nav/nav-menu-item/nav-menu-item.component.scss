@@ -38,3 +38,47 @@
         background-color: $primaryColor;
     }
 }
+
+mat-expansion-panel {
+    border-bottom: 1px solid #dfdfdf;
+    border-radius: 0;
+    &:focus {
+        background: transparent;
+    }
+
+    mat-expansion-panel-header:hover {
+        background: transparentize($primaryColor, 0.8) !important;
+    }
+
+    &.mat-expanded {
+        background-color: transparentize($primaryColor, 0.95);
+        border-color: transparentize($primaryColor, 0.8);
+        mat-expansion-panel-header {
+            &:hover {
+                background: transparentize($primaryColor, 1) !important;
+            }
+            &:focus {
+                background: transparentize($primaryColor, 1) !important;
+            }
+            .mat-expansion-panel-header-title {
+                color: $primaryColor;
+                font-weight: 500;
+            }
+        }
+        .sidenav-item {
+            border-color: transparent;
+            font-size: 15px;
+            height: 45px;
+        }
+    }
+
+    mat-expansion-panel-header {
+        padding-left: 16px;
+        .group-title {
+            font-size: 16px;
+        }
+        .mat-expansion-indicator::after {
+            color: inherit;
+        }
+    }
+}

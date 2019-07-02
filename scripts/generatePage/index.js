@@ -6,12 +6,14 @@ const argv = require('yargs')
     .alias('n', 'nav')
     .alias('c', 'child')
     .alias('i','icon')
+    .alias('g', 'group')
     .boolean(['r', 'n', 'c']).demandCommand(1).argv;
 
 const isRoot = argv.root;
 const isNav = argv.nav;
 const isChild = argv.child;
 const icon = argv.icon;
+const group = argv.group || '';
 const pageName = argv._[0];
 
 generatePage();
@@ -46,7 +48,9 @@ async function generatePage() {
         }
         if (isNav) {
             navRoute = `data: {title: '${title}'},` +
-                `icon: '${icon || 'menu'}',` + navRoute;
+                `icon: '${icon || 'menu'}',` +
+                `group: '${group}',` +
+                navRoute;
             let navRoutesFileText = fs.readFileSync('src/app/nav-routing.ts', 'utf-8');
             navRoutesFileText = navRoutesFileText.replace(
                 /(navRoutes[^=]+=[\s]+\[)([^\]]*)(])/,
