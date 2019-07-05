@@ -40,16 +40,7 @@ export class NavComponent implements OnInit {
         this.router.navigate(['login'], { replaceUrl: true });
     }
 
-    public goBack() {
-        const previousUrl = this.router.url
-            .split('/')
-            .slice(0, -this.navigationService.getActivePage().urlLength)
-            .join('/');
-        this.router.navigateByUrl(previousUrl);
-    }
-
-    public isChildPage(): boolean {
-        const navUrl = this.router.url.split('nav').pop();
-        return navUrl.split('/').length > 2;
+    public getPreviousUrl(): string[] {
+        return this.navigationService.getPreviousUrl();
     }
 }

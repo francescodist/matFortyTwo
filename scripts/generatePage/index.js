@@ -28,8 +28,7 @@ async function generatePage() {
         const componentName =  title + 'PageComponent';
         let routingFileText = fs.readFileSync(`src/app/pages/${pageName}-page/${pageName}-page-routing.module.ts`, 'utf-8');
         routingFileText = `import { ${componentName} } from './${pageName}-page.component';\r\n\r\n` + routingFileText;
-        routingFileText = `import { NavRootGuard } from '../../core/nav-root.guard';\r\n\r\n` + routingFileText;
-        const route = `{path:'',component:${componentName},canActivate:[NavRootGuard],data:{shouldReuse:true,key:'${pageName}'}},`;
+        const route = `{path:'',component:${componentName},data:{shouldReuse:true,key:'${pageName}'}},`;
         routingFileText = routingFileText.replace(/(routes[^\[]+\[)(.*)(][^/n]*\n)/, `$1 ${route} $2 $3`);
         fs.writeFileSync(`src/app/pages/${pageName}-page/${pageName}-page-routing.module.ts`, routingFileText, 'utf-8');
         let navRoute =

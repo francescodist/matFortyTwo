@@ -2,9 +2,9 @@
     <button mat-icon-button (click)="onToggleSideNav()">
         <mat-icon>menu</mat-icon>
     </button>
-    <button mat-icon-button (click)="onGoBack()" *ngIf="activePage?.isChild">
+    <a mat-icon-button [routerLink]="previousUrl" *ngIf="activePage?.isChild">
         <mat-icon>arrow_back</mat-icon>
-    </button>
+    </a>
     <div fxFlex="100%">{{activePage?.title}}</div>
     <button mat-icon-button (click)="onLogout()">
         <mat-icon>logout</mat-icon>

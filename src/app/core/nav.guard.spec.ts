@@ -1,10 +1,10 @@
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 
-import { NavRootGuard } from './nav-root.guard';
+import { NavGuard } from './nav.guard';
 import { RouterTestingModule } from '@angular/router/testing';
 import { sideNavPath } from '../nav-routing';
 
-describe('NavStackGuard', () => {
+describe('NavGuard', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [
@@ -15,11 +15,11 @@ describe('NavStackGuard', () => {
                     },
                 ]),
             ],
-            providers: [NavRootGuard],
+            providers: [NavGuard],
         });
     });
 
-    it('should ...', inject([NavRootGuard], (guard: NavRootGuard) => {
+    it('should ...', inject([NavGuard], (guard: NavGuard) => {
         expect(guard).toBeTruthy();
     }));
 });
