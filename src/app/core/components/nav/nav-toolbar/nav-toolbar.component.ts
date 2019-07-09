@@ -8,9 +8,9 @@ import { Page } from '../../../services/navigation/navigation.service';
 })
 export class NavToolbarComponent implements OnInit {
     @Input() activePage: Page;
+    @Input() previousUrl: string[];
     @Output() toggleSideNav = new EventEmitter();
     @Output() logout = new EventEmitter();
-    @Output() goBack = new EventEmitter();
 
     constructor() {}
 
@@ -22,9 +22,5 @@ export class NavToolbarComponent implements OnInit {
 
     public onLogout() {
         this.logout.emit();
-    }
-
-    public onGoBack() {
-        this.goBack.emit();
     }
 }

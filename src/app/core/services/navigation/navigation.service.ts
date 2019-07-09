@@ -4,11 +4,9 @@ import { NavRoute, NavRouteService } from '../../../nav-routing';
 export class Page {
     title: string;
     isChild: boolean;
-    urlLength: number;
-    constructor(title, urlLength, isChild) {
+    constructor(title, isChild) {
         this.title = title;
-        this.isChild = !!isChild;
-        this.urlLength = urlLength;
+        this.isChild = isChild;
     }
 }
 
@@ -18,7 +16,8 @@ export class Page {
 export class NavigationService {
     private readonly navigationItems: NavRoute[];
     private selectedNavigationItem: NavRoute = {} as NavRoute;
-    private activePage;
+    private activePage: Page;
+    private navigationStack: Array<Array<string>> = [];
 
     constructor(private navRouteService: NavRouteService) {
         this.navigationItems = navRouteService.getNavRoutes();
@@ -41,7 +40,6 @@ export class NavigationService {
                 return flatList;
             }, [])
             .find(navItem => navItem.path === path);
-        this.setActivePage(this.selectedNavigationItem.data.title);
     }
 
     public getSelectedNavigationItem(): NavRoute {
@@ -52,7 +50,40 @@ export class NavigationService {
         return this.activePage;
     }
 
-    public setActivePage(title: string, urlLength?: number, isChild?) {
-        this.activePage = new Page(title, urlLength, isChild);
+    public resetStack(url: string[]) {
+        this.navigationStack = [url];
+    }
+
+    public pushToStack(url: string[]) {
+        this.navigationStack.push(url);
+    }
+
+    public popFromStack() {
+        console.log('popped');
+        this.navigationStack.pop();
+    }
+
+    public getPreviousUrl(): string[] {
+        return this.navigationStack
+            .slice(0, -1)
+            .reduce((flatUrl, urlSegment) => [...flatUrl, ...urlSegment], []);
+    }
+
+    public getCurrentUrl(): string[] {
+        return this.navigationStack.reduce(
+            (flatUrl, urlSegment) => [...flatUrl, ...urlSegment],
+            [],
+        );
+    }
+
+    public setActivePage(
+        title: string,
+        url: string[],
+        isChild: boolean = false,
+    ) {
+        if (url.length > 0) {
+            isChild ? this.pushToStack(url) : this.resetStack(url);
+        }
+        this.activePage = new Page(title, isChild);
     }
 }

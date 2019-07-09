@@ -11,7 +11,8 @@
     <mat-sidenav-content>
         <app-nav-toolbar [activePage]="getActivePage()"
                          (toggleSideNav)="toggleSideNav()"
-                         (logout)="logout()" (goBack)="goBack()"></app-nav-toolbar>
+                         (logout)="logout()"
+                         [previousUrl]="getPreviousUrl()"></app-nav-toolbar>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

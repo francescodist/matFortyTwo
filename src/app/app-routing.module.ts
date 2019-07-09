@@ -9,6 +9,7 @@ import { navRoutes, sideNavPath } from './nav-routing';
 import { NavComponent } from './core/components/nav/nav.component';
 import { AuthGuard } from './auth/auth.guard';
 import { CustomRouteReuseStrategy } from './core/nav-reuse-strategy';
+import { NavGuard } from './core/nav.guard';
 
 const routes: Routes = [
     {
@@ -23,6 +24,7 @@ const routes: Routes = [
         component: NavComponent,
         children: navRoutes,
         canActivate: [AuthGuard],
+        canActivateChild: [NavGuard],
     },
     {
         path: '**',
