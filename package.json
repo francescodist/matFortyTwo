@@ -13,7 +13,7 @@
     "format:check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
     "format:fix": "prettier --config ./.prettierrc --write \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
     "genpage": "node ./scripts/generatePage",
-      "postgenpage": "ng lint --fix"
+    "postgenpage": "ng lint --fix"
   },
   "husky": {
     "hooks": {
